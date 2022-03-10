@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IC Calculator</title>
+    <style>
+        p{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <center style="max-width: 500px;margin: 50px auto; border: 3px solid black;">
+        <form action="">
+        Price:
+        <input id="price" type="text"><br><br>
+        Quantity:
+        <input id="quantity" type="text"><br><br>
+        <input type="button" value="Calculate" onclick="calculate()"><br>
+        Total : <p id="total"></p> 
+        Buy Charges : <p id="buy_charge"></p>
+        Buy Total : <p id="buy_total"></p>
+        <hr>
+    </form>
+    </center>
+
+    <script src="./index.js"></script>
+</body>
+</html>
