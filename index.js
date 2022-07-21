@@ -18,9 +18,12 @@ function sellcalculate(){
     var sellprice = parseFloat(document.getElementById("sell_price").value);
     var sell_total = quantity * sellprice;
     var sell_charge = (sell_total * 0.2) / 100;
-    var total_sell = sell_total - sell_charge;
+    var tds = sell_total * 0.01;
+    var total_sell = sell_total - sell_charge - tds;
+    
     document.getElementById("sell_total").innerHTML = sell_total;
     document.getElementById("sell_charge").innerHTML = sell_charge;
+    document.getElementById("tds").innerHTML = tds;
     document.getElementById("total_sell_price").innerHTML = total_sell;
 
 
