@@ -60,8 +60,8 @@
             function convertLink() {
                 let input = document.getElementById('linkInput').value.trim();
                 if (!input) return;
-                // Replace domain
-                let converted = input.replace(/https?:\/\/(?:teraboxshare|terabox|www\.teraboxshare|www\.terabox)[^\/]*\//, 'https://1024terabox.com/');
+                // Replace any domain with 1024terabox.com
+                let converted = input.replace(/https?:\/\/[^\/]+\//, 'https://1024terabox.com/');
                 document.getElementById('converted-link').textContent = converted;
                 document.getElementById('copyBtn').style.display = 'block';
                 if (document.getElementById('autoCopyToggle').checked && converted) {
