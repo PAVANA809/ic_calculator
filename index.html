@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IC Calculator</title>
-    <style>
-        p{
-            color: blue;
-        }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3507316425044293"
-        crossorigin="anonymous"></script>
-</head>
-<body>
-    <center style="max-width: 500px;margin: 50px auto; border: 3px solid black;">
-        <p>WazirX</p>
-        <p>Platform fee: 0.472%</p>
-        <p>TDS : 1%</p>
-        <form action="">
-        Price:
-        <input id="price" type="text"><br><br>
-        Quantity:
-        <input id="quantity" type="text"><br><br>
-        <input type="button" value="Calculate" onclick="calculate()"><br>
-        Total : <p id="total"></p> 
-        Buy Charges : <p id="buy_charge"></p>
-        Buy Total : <p id="buy_total"></p>
-        <hr>
-        Sell Price:
-        <input id="sell_price" type="text"><br><br>
-        <input type="button" onclick="sellcalculate()" value="Calculate"><br>
-        Sell total : <p id="sell_total"></p>
-        Sell charge : <p id="sell_charge"></p>
-        TDS : <p id="tds"></p>
-        Total : <p id="total_sell_price"></p>
-        <br>
 
-        Revenue : <p style="color: green;" id="revenue"></p>
-    </form>
-    </center>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IC Calculator</title>
+        <style>
+            p {
+                color: blue;
+            }
+        </style>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3507316425044293"
+            crossorigin="anonymous"></script>
+    </head>
 
-    <script src="./index.js"></script>
-</body>
+    <body>
+        <center style="max-width: 500px;margin: 50px auto; border: 3px solid black;">
+            <button onclick="window.location.href='link_converter.html'">Open Link Converter</button>
+            <br><br>
+            <p>WazirX</p>
+            <p>Platform fee: 0.472%</p>
+            <p>TDS : 1%</p>
+            <form action="">
+                Price:
+                <input id="price" type="text"><br><br>
+                Quantity:
+                <input id="quantity" type="text"><br><br>
+                <input type="button" value="Calculate" onclick="calculate()"><br>
+                Total : <p id="total"></p>
+                Buy Charges : <p id="buy_charge"></p>
+                Buy Total : <p id="buy_total"></p>
+                <hr>
+                Sell Price:
+                <input id="sell_price" type="text"><br><br>
+                <input type="button" onclick="sellcalculate()" value="Calculate"><br>
+                Sell total : <p id="sell_total"></p>
+                Sell charge : <p id="sell_charge"></p>
+                TDS : <p id="tds"></p>
+                Total : <p id="total_sell_price"></p>
+                <br>
+
+                Revenue : <p style="color: green;" id="revenue"></p>
+            </form>
+        </center>
+
+        <script src="./index.js"></script>
+    </body>
+
 </html>

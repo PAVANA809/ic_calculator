@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Link Converter</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            .container {
+                max-width: 400px;
+                margin: 50px auto;
+                border: 2px solid #333;
+                padding: 20px;
+                border-radius: 8px;
+            }
+
+            input,
+            button {
+                margin: 8px 0;
+                width: 100%;
+                padding: 8px;
+            }
+
+            #converted-link {
+                color: green;
+                word-break: break-all;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>Link Converter</h2>
+            <input id="linkInput" type="text" placeholder="Paste your link here">
+            <button onclick="pasteAndConvert()">Paste</button>
+            <div style="display: flex; align-items: center; margin:8px 0;">
+                <input type="checkbox" id="autoCopyToggle" onchange="convertLink()"
+                    style="width:auto; margin-right:8px;">
+                <label for="autoCopyToggle" style="margin:0;">Auto Copy</label>
+            </div>
+            <div id="converted-link"></div>
+            <button id="copyBtn" style="display:none;" onclick="copyConverted()">Copy</button>
+        </div>
+        <script>
+            async function pasteAndConvert() {
+                let text = '';
+                if (navigator.clipboard) {
+                    text = await navigator.clipboard.readText();
+                    document.getElementById('linkInput').value = text;
+                } else {
+                    alert('Clipboard API not supported');
+                    return;
+                }
+                convertLink();
+            }
+            function convertLink() {
+                let input = document.getElementById('linkInput').value.trim();
+                if (!input) return;
+                // Replace domain
+                let converted = input.replace(/https?:\/\/(?:teraboxshare|terabox|www\.teraboxshare|www\.terabox)[^\/]*\//, 'https://1024terabox.com/');
+                document.getElementById('converted-link').textContent = converted;
+                document.getElementById('copyBtn').style.display = 'block';
+                if (document.getElementById('autoCopyToggle').checked && converted) {
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(converted);
+                        showCopiedNotification();
+                    }
+                }
+            }
+            function showCopiedNotification() {
+                let notif = document.createElement('div');
+                notif.textContent = 'Copied!';
+                notif.style.position = 'fixed';
+                notif.style.top = '20px';
+                notif.style.right = '20px';
+                notif.style.background = '#4caf50';
+                notif.style.color = '#fff';
+                notif.style.padding = '8px 16px';
+                notif.style.borderRadius = '4px';
+                notif.style.zIndex = '9999';
+                document.body.appendChild(notif);
+                setTimeout(() => { notif.remove(); }, 1200);
+            }
+            document.getElementById('linkInput').addEventListener('input', convertLink);
+            function copyConverted() {
+                let text = document.getElementById('converted-link').textContent;
+                if (navigator.clipboard) {
+                    navigator.clipboard.writeText(text);
+                    showCopiedNotification();
+                }
+            }
+        </script>
+    </body>
+
+</html>
